@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "oppapi"
+version = "0.0.1"
+description = ""
+authors = ["yukinarit <yukinarit84@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/yukinarit/oppapi"
+homepage = "https://github.com/yukinarit/oppapi"
+classifiers=[
+        "Development Status :: 2 - Pre-Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: Implementation :: CPython",
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.7.0"
+pyserde = "^0.5.3"
+okome = "^0.0.1"
+
+[tool.poetry.dev-dependencies]
+pysen = {version = "0.9.1", extras = ["lint"]}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pysen]
+version = "0.9"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 119
+py_version = "py37"
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
