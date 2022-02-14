@@ -21,7 +21,7 @@ classifiers=[
 
 [tool.poetry.dependencies]
 python = "^3.7.0"
-pyserde = ">=0.5.3"
+pyserde = ">=0.7.0"
 okome = "^0.0.1"
 
 [tool.poetry.dev-dependencies]

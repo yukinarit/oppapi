@@ -205,6 +205,9 @@ def _long(f: serde.de.DeField) -> str:
 
 
 def _update_parsed_args(cls, dic: Dict):
+    """
+    Update the parsed arguments such that pyserde can process subcommands.
+    """
     for f in serde.de.defields(cls):
         if serde.compat.is_union(f.type):
             attr = {}
@@ -214,8 +217,11 @@ def _update_parsed_args(cls, dic: Dict):
                 if union_class_name != _subcommand(inner_cls):
                     continue
                 for ff in serde.de.defields(inner_cls):
+                    log.debug(f"Updating {inner_cls.__name__} {ff.name}")
                     if ff.name in dic:
-                        attr[ff.name] = dic[ff.name]
+                        if inner_cls.__name__ not in attr:
+                            attr[inner_cls.__name__] = {}
+                        attr[inner_cls.__name__][ff.name] = dic[ff.name]
 
 
 def from_args(cls: Type[T]) -> T:

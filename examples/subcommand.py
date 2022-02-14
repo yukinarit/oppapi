@@ -1,7 +1,7 @@
 from typing import Optional, Union
 from oppapi import from_args, oppapi
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 @oppapi
@@ -11,12 +11,12 @@ class Foo:
 
 @oppapi
 class Bar:
+    a: str
     b: Optional[int]
 
 
 @oppapi
 class Opt:
-    cmd: str
     sub: Union[Foo, Bar]
 
 

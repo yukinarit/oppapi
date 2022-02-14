@@ -139,40 +139,32 @@ Opt(values=[1, 2, 3], opts=(10, 'foo', 10.0, True))
 
 ## SubCommand
 
-`Union` will be subcommands.
+`Union` of dataclasses will be subcommands.
 
 ```python
-from typing import Optional, Union
-from oppapi import from_args, oppapi
-
 @oppapi
 class Foo:
     a: int
 
 @oppapi
 class Bar:
+    a: str
     b: Optional[int]
 
 @oppapi
 class Opt:
-    cmd: str
     sub: Union[Foo, Bar]
 
-def main():
-    opt = from_args(Opt)
 ```
 
 ```
-$ python subcommand.py -h
-
-usage: subcommand.py [-h] cmd {foo,bar} ...
+usage: subcommand.py [-h] {foo,bar} ...
 
 positional arguments:
-  cmd
   {foo,bar}
 
-optional arguments:
-  -h, --help  show this help message and exit
+  optional arguments:
+    -h, --help  show this help message and exit
 ```
 
 ## Flatten
