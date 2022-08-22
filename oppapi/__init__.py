@@ -161,7 +161,7 @@ def _get_type_for_argparse(typ: Type):
         return serde.compat.get_args(typ)[0]
     if serde.compat.is_tuple(typ):
         return None
-    elif typ in serde.de.StrSerializableTypes or typ in serde.de.DateTimeTypes:
+    elif typ in serde.compat.StrSerializableTypes or typ in serde.compat.DateTimeTypes:
         return str
     elif issubclass(typ, enum.IntEnum):
         return int
