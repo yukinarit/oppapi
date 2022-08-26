@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "oppapi"
-version = "0.0.4"
+version = "0.0.5"
 description = ""
 authors = ["yukinarit <yukinarit84@gmail.com>"]
 license = "MIT"
@@ -21,7 +21,7 @@ classifiers=[
 
 [tool.poetry.dependencies]
 python = "^3.7.0"
-pyserde = ">=0.7.0"
+pyserde = ">=0.9.0"
 okome = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
