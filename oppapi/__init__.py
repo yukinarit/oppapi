@@ -209,7 +209,7 @@ def _update_parsed_args(cls, dic: Dict):
     Update the parsed arguments such that pyserde can process subcommands.
     """
     for f in serde.de.defields(cls):
-        if serde.compat.is_union(f.type):
+        if serde.compat.is_union(f.type) and not serde.compat.is_opt(f.type):
             attr = {}
             union_class_name = dic.pop(f.name)
             dic[f.name] = attr
